@@ -1,0 +1,180 @@
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  display: inline-block;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+ul,
+ol {
+  list-style: none;
+}
+html {
+  font-size: 62.5%;
+}
+/*end reset*/
+.container {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image: radial-gradient(
+    #444cf7 0.6000000000000001px,
+    #e5e5f7 0.6000000000000001px
+  );
+  background-size: 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lights-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 2rem;
+  position: absolute;
+  gap: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.light-checkbox {
+  display: none;
+}
+.light-label {
+  height: 2.2rem;
+  width: 4.2rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  background-color: black;
+  transition: background-color 0.3s;
+  padding: 0.3rem 0.4rem;
+}
+.light-label::after {
+  content: "";
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: white;
+  border-radius: 50%;
+  display: block;
+  transition: 0.3s;
+}
+.light-checkbox:checked + .light-label::after {
+  background-color: rgb(43, 133, 5);
+  transform: translateX(1.8rem);
+}
+.light-checkbox:checked + .light-label {
+  background-color: white;
+}
+.container:has(.light-checkbox:checked) .lights {
+  opacity: 1;
+  visibility: visible;
+}
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  background-color: white;
+  border-radius: 1rem;
+  width: 35rem;
+  height: 30rem;
+  overflow: hidden;
+  box-shadow: 0 0 0.5rem rgb(0, 0, 0, 0.2);
+}
+.lights {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+@keyframes party {
+  from {
+    fill: #ff0000;
+  }
+  to {
+    fill: #fff500;
+  }
+}
+.bulb-red {
+  animation: party 0.5s alternate infinite;
+}
+.bulb-yellow {
+  animation: party 0.5s alternate-reverse infinite;
+}
+.card__top {
+  min-height: 30%;
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #e5e5f7 12px
+    ),
+    repeating-linear-gradient(#444cf755, #444cf7);
+}
+.card__middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1rem;
+  margin-top: -6rem;
+}
+.name {
+  font-size: 2.1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+.position {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.middle__img {
+  max-width: 12rem;
+  max-height: 12rem;
+  border-radius: 50%;
+  border: 0.4rem solid white;
+}
+.bottom__list {
+  display: flex;
+  border-top: solid black 0.01rem;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.link {
+  flex-basis: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.img {
+  max-width: 3rem;
+  max-height: 3rem;
+}
+.github {
+  border-right: solid black 0.01rem;
+  border-left: solid black 0.01rem;
+}
+h3 {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
